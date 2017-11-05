@@ -1,311 +1,590 @@
 <!DOCTYPE html>
-<!-- saved from url=(0046)file:///C:/Users/Banti/Desktop/2nd%20Card.html -->
-<html class=" -webkit- -webkit- -webkit- -webkit- -webkit- -webkit- -webkit- -webkit- -webkit-"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
-  <title>Student Card</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <style media="" data-href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}</style>
+<html lang="en">
 
-  <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
-
-      <style>
-      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
-      * {
-  box-sizing: border-box;
-  transition: .5s ease-in-out;
-}
-
-html, body {
-  background-color: #220200;
-  height: 100%;
-  overflow: hidden;
-  font-family: helvetica neue,helvetica,arial,sans-serif;
-}
-html h1, body h1 {
-  font-size: 25px;
-  font-weight: 200;
-  color: black;
-  line-height: 30px;
-  margin-bottom: 10px;
-}
-html h2, body h2 {
-  font-size: 15px;
-  color: #000000;
-}
-
-#wrapper {
-  opacity: 0;
-  display: table;
-  height: 100%;
-  width: 100%;
-}
-#wrapper.loaded {
-  opacity: 1;
-  transition: 2.5s ease-in-out;
-}
-#wrapper #content {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-#card {
-  height: 400px;
-  width: 300px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-  perspective: 600px;
-}
-#card #front, #card #back {
-  border-radius: 10px;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-#card #front {
-  transform: rotateY(0deg);
-  overflow: hidden;
-  z-index: 1;
-}
-#card #front #arrow {
-  position: absolute;
-  height: 50px;
-  line-height: 50px;
-  font-size: 30px;
-  z-index: 10;
-  bottom: 0;
-  right: 50px;
-  color: rgba(255, 255, 255, 0.5);
-  animation: arrowWiggle 1s ease-in-out infinite;
-}
-#card #front #top-pic {
-  height: 50%;
-  width: 100%;
-  background-image: url(https://www.mnsuet.ml/img/profile.png);
-  background-size: cover;
-}
-#card #front #avatar {
-  width: 114px;
-  height: 114px;
-  top: 50%;
-  left: 50%;
-  margin: -77px 0 0 -57px;
-  border-radius: 100%;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.8), 0 4px 5px rgba(107, 5, 0, 0.6), 0 0 50px 50px rgba(255, 255, 255, 0.25);
-  background-image: url(https://2.bp.blogspot.com/-sgzBUkn-5vw/Ufu0FEDISBI/AAAAAAAAAeA/JsIWkkyi42Q/s1600/fitness+person+-+How+to+Become+a+Very+Healthy+Person.jpg);
-  background-size: contain;
-  position: absolute;
-  z-index: 1;
-}
-#card #front #info-box {
-  height: 50%;
-  width: 100%;
-  position: absolute;
-  display: table;
-  left: 0;
-  bottom: 0;
-  background: rgb(52.9%,80.8%,98%);
-  padding: 50px;
-}
-#card #front #social-bar {
-  height: 50px;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  line-height: 50px;
-  font-size: 18px;
-  text-align: center;
-}
-#card #front #social-bar a {
-  display: inline-block;
-  color: #951009;
-  text-decoration: none;
-  padding: 5px;
-  line-height: 18px;
-  border-radius: 5px;
-}
-#card #front #social-bar a:hover {
-  color: #450300;
-  background: rgba(255, 255, 255, 0.3);
-  transition: .25s ease-in-out;
-}
-#card #back {
-  transform: rotateY(180deg);
-  background-color: rgb(52.9%,80.8%,98%);
-  display: table;
-  z-index: 2;
-  font-size: 13px;
-  line-height: 20px;
-  padding: 50px;
-}
-#card #back .back-info {
-  text-align: justify;
-  text-justify: inter-word;
-}
-#card #back #social-bar {
-  height: 50px;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  line-height: 50px;
-  font-size: 18px;
-  text-align: center;
-}
-#card #back #social-bar a {
-  display: inline-block;
-  line-height: 18px;
-  color: #951009;
-  text-decoration: none;
-  padding: 5px;
-  border-radius: 5px;
-}
-#card #back #social-bar a:hover {
-  color: #450300;
-  background: rgba(223, 74, 66, 0.5);
-  transition: .25s ease-in-out;
-}
-#card .info {
-  display: table-cell;
-  height: 100%;
-  vertical-align: middle;
-  text-align: center;
-}
-#card.flip #front {
-  transform: rotateY(180deg);
-}
-#card.flip #back {
-  transform: rotateY(360deg);
-}
-
-#background {
-  position: fixed;
-  background-color: black;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}
-#background #background-image {
-  height: calc(100% + 60px);
-  width: calc(100% + 60px);
-  position: absolute;
-  top: -30px;
-  left: -30px;
-  -webkit-filter: blur(10px);
-  background-image: url(https://unsplash.imgix.net/45/ZLSw0SXxThSrkXRIiCdT_DSC_0345.jpg?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=857f07b76abac23a7fb7161cc7b12a46);
-  background-size: cover;
-}
-
-@keyframes arrowWiggle {
-  0% {
-    right: 50px;
-  }
-  50% {
-    right: 35px;
-  }
-  100% {
-    right: 50px;
-  }
-}
-
+<head>
+    <title>Student Card</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="description" content="Student Card Of MNS UET MULTAN students">
+    <meta property="og:site_name" content="Student Card">
+    <meta property="og:title" content="Student Card">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Student Card Of MNS UET MULTAN students">
+    <meta property="og:url" content="https://studentcardg.carrd.co">
+    <meta property="twitter:card" content="summary_large_image">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200italic" rel="stylesheet" type="text/css">
+    <style>
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+        
+        body {
+            line-height: 1;
+        }
+        
+        ol,
+        ul {
+            list-style: none;
+        }
+        
+        blockquote,
+        q {
+            quotes: none;
+        }
+        
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: '';
+            content: none;
+        }
+        
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        
+        body {
+            -webkit-text-size-adjust: none
+        }
+        
+        mark {
+            background-color: transparent;
+            color: inherit
+        }
+        
+        input::-moz-focus-inner {
+            border: 0;
+            padding: 0
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            -ms-appearance: none;
+            appearance: none
+        }
+        
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-width: 320px;
+            min-height: 100vh;
+            line-height: 1.0;
+            word-wrap: break-word;
+            overflow-x: hidden;
+        }
+        
+        strong {
+            color: inherit;
+            font-weight: bolder;
+        }
+        
+        em {
+            font-style: italic;
+        }
+        
+        code {
+            font-family: "Lucida Console", "Courier New", monospace;
+            font-weight: normal;
+            text-indent: 0;
+            letter-spacing: 0;
+            font-size: 0.9em;
+            margin: 0 0.25em;
+            padding: 0.25em 0.5em;
+            background-color: rgba(144, 144, 144, 0.25);
+            border-radius: 0.25em;
+        }
+        
+        mark {
+            background-color: rgba(144, 144, 144, 0.25);
+        }
+        
+        a {
+            -moz-transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+            -webkit-transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+            -ms-transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+            transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+            color: inherit;
+            text-decoration: underline;
+        }
+        
+        s {
+            text-decoration: line-through;
+        }
+        
+        body:before {
+            content: '';
+            display: block;
+            background-image: linear-gradient(45deg, #FF0000 0%, #0000FF 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            -moz-pointer-events: none;
+            -webkit-pointer-events: none;
+            -ms-pointer-events: none;
+            pointer-events: none;
+            -moz-transform: scale(1);
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+        }
+        
+        html {
+            font-size: 18pt;
+        }
+        
+        #wrapper {
+            -webkit-overflow-scrolling: touch;
+            display: -moz-flex;
+            display: -webkit-flex;
+            display: -ms-flex;
+            display: flex;
+            -moz-flex-direction: column;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -moz-align-items: center;
+            -webkit-align-items: center;
+            -ms-align-items: center;
+            align-items: center;
+            -moz-justify-content: center;
+            -webkit-justify-content: center;
+            -ms-justify-content: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            padding: 1.5625rem 1.5625rem 1.5625rem 1.5625rem;
+        }
+        
+        #main {
+            display: -moz-flex;
+            display: -webkit-flex;
+            display: -ms-flex;
+            display: flex;
+            position: relative;
+            max-width: 100%;
+            z-index: 1;
+            -moz-align-items: center;
+            -webkit-align-items: center;
+            -ms-align-items: center;
+            align-items: center;
+            -moz-justify-content: center;
+            -webkit-justify-content: center;
+            -ms-justify-content: center;
+            justify-content: center;
+            -moz-flex-grow: 0;
+            -webkit-flex-grow: 0;
+            -ms-flex-grow: 0;
+            flex-grow: 0;
+            -moz-flex-shrink: 0;
+            -webkit-flex-shrink: 0;
+            -ms-flex-shrink: 0;
+            flex-shrink: 0;
+            text-align: center;
+            background-color: rgba(0, 26, 77, 0.702);
+            border-radius: 0.375rem 0.375rem 0.375rem 0.375rem;
+            -moz-transition: opacity 1s ease 0s, -moz-transform 1s ease 0s;
+            -webkit-transition: opacity 1s ease 0s, -webkit-transform 1s ease 0s;
+            -ms-transition: opacity 1s ease 0s, -ms-transform 1s ease 0s;
+            transition: opacity 1s ease 0s, transform 1s ease 0s;
+            -moz-transform: perspective(1000px) rotateX(0deg);
+            -webkit-transform: perspective(1000px) rotateX(0deg);
+            -ms-transform: perspective(1000px) rotateX(0deg);
+            transform: perspective(1000px) rotateX(0deg);
+            -moz-transform-origin: 50% 50%;
+            -webkit-transform-origin: 50% 50%;
+            -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+        }
+        
+        #main>.inner {
+            position: relative;
+            z-index: 1;
+            border-radius: inherit;
+            padding: 3.125rem 2.5rem;
+            max-width: 100%;
+            width: 23rem;
+        }
+        
+        #main>.inner>* {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        #main>.inner> :first-child {
+            margin-top: 0 !important;
+        }
+        
+        #main>.inner> :last-child {
+            margin-bottom: 0 !important;
+        }
+        
+        #main>.inner>.full {
+            margin-left: calc(-2.5rem);
+            width: calc(100% + 5rem + 0.4725px);
+            max-width: calc(100% + 5rem + 0.4725px);
+        }
+        
+        #main>.inner>.full:first-child {
+            margin-top: -3.125rem !important;
+            border-top-left-radius: inherit;
+            border-top-right-radius: inherit;
+        }
+        
+        #main>.inner>.full:last-child {
+            margin-bottom: -3.125rem !important;
+            border-bottom-left-radius: inherit;
+            border-bottom-right-radius: inherit;
+        }
+        
+        #main>.inner>.full.screen {
+            width: 100vw;
+            max-width: 100vw;
+            position: relative;
+            border-radius: 0 !important;
+            left: 50%;
+            right: auto;
+            margin-left: -50vw;
+        }
+        
+        body.is-loading #main {
+            opacity: 0;
+            -moz-transform: perspective(1000px) rotateX(15deg);
+            -webkit-transform: perspective(1000px) rotateX(15deg);
+            -ms-transform: perspective(1000px) rotateX(15deg);
+            transform: perspective(1000px) rotateX(15deg);
+        }
+        
+        .image {
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+            display: block;
+        }
+        
+        .image a,
+        .image span {
+            position: relative;
+            max-width: 100%;
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+        .image a img,
+        .image span img {
+            display: block;
+        }
+        
+        .image img {
+            width: 100%;
+            max-width: 100%;
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+        .image.full img {
+            display: block;
+        }
+        
+        .image.full:first-child img {
+            border-top-left-radius: inherit;
+            border-top-right-radius: inherit;
+        }
+        
+        .image.full:last-child img {
+            border-bottom-left-radius: inherit;
+            border-bottom-right-radius: inherit;
+        }
+        
+        .image.full a,
+        .image.full span {
+            display: block;
+        }
+        
+        #image02 img {
+            width: 6rem;
+        }
+        
+        #image01 a,
+        #image01 span {
+            border-radius: 100%;
+        }
+        
+        #image01 img {
+            width: 10rem;
+            border-radius: 100%;
+        }
+        
+        #image03 img {
+            width: 8rem;
+        }
+        
+        h1 br+br,
+        h2 br+br,
+        h3 br+br,
+        p br+br {
+            display: block;
+            content: ' ';
+            margin-top: 1.125rem;
+        }
+        
+        h1 .li,
+        h2 .li,
+        h3 .li,
+        p .li {
+            display: list-item;
+            padding-left: 0.5em;
+            margin: 0.75em 0 0 1em;
+        }
+        
+        #credits {
+            font-size: 0.8em;
+            cursor: default;
+            margin-top: 1rem !important;
+        }
+        
+        #credits a {
+            text-decoration: underline;
+            -moz-transition: opacity 0.25s ease;
+            -webkit-transition: opacity 0.25s ease;
+            -ms-transition: opacity 0.25s ease;
+            transition: opacity 0.25s ease;
+            opacity: 0.5;
+            text-decoration: none !important;
+        }
+        
+        #credits a:hover {
+            text-decoration: none;
+            opacity: 1;
+            text-decoration: none !important;
+        }
+        
+        h1,
+        h2,
+        h3,
+        p {
+            text-transform: uppercase;
+            color: #FAFAFA;
+            font-family: 'Source Sans Pro';
+            letter-spacing: 0.225rem;
+            width: calc(100% + 0.225rem);
+            font-size: 1em;
+            line-height: 1.875;
+            font-weight: 200;
+        }
+        
+        @media (max-width: 1680px) {
+            html {
+                font-size: 13pt;
+            }
+        }
+        
+        @media (max-width: 1280px) {
+            html {
+                font-size: 13pt;
+            }
+        }
+        
+        @media (max-width: 980px) {
+            html {
+                font-size: 11pt;
+            }
+        }
+        
+        @media (max-width: 736px) {
+            html {
+                font-size: 11pt;
+            }
+            #main>.inner {
+                padding: 3.125rem 2rem;
+            }
+            #main>.inner>* {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+            #main>.inner>.full {
+                margin-left: calc(-2rem);
+                width: calc(100% + 4rem + 0.4725px);
+                max-width: calc(100% + 4rem + 0.4725px);
+            }
+            #main>.inner>.full:first-child {
+                margin-top: -3.125rem !important;
+            }
+            #main>.inner>.full:last-child {
+                margin-bottom: -3.125rem !important;
+            }
+            #main>.inner>.full.screen {
+                margin-left: -50vw;
+            }
+            #image02 img {
+                width: 6rem;
+            }
+            #image01 img {
+                width: 10rem;
+            }
+            #image03 img {
+                width: 8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #main>.inner>* {
+                margin-top: 0.875rem;
+                margin-bottom: 0.875rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            #main>.inner {
+                padding: 2.34375rem 1.5rem;
+            }
+            #main>.inner>* {
+                margin-top: 0.75rem;
+                margin-bottom: 0.75rem;
+            }
+            #main>.inner>.full {
+                margin-left: calc(-1.5rem);
+                width: calc(100% + 3rem + 0.4725px);
+                max-width: calc(100% + 3rem + 0.4725px);
+            }
+            #main>.inner>.full:first-child {
+                margin-top: -2.34375rem !important;
+            }
+            #main>.inner>.full:last-child {
+                margin-bottom: -2.34375rem !important;
+            }
+            #main>.inner>.full.screen {
+                margin-left: -50vw;
+            }
+        }
     </style>
-
-  <script src="./test_files/prefixfree.min.js.download"></script>
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-106781518-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
 </head>
 
-<body>
-  <div id="wrapper" class="loaded">
-  <div id="content">
-    <div id="card" class="">
-      <div id="front">
-        
-        <div id="top-pic" style="
-    width: 110px;
-    height: 110px;
-    padding-left: 0px;
-    border-left-width: 30px;
-    margin-left: 90px;
-    margin-bottom: 0px;
-    border-bottom-width: 30px;
-    margin-top: 5px;
-"></div>
-        <div id="avatar"></div>
-        <div id="info-box">
-          <div class="info">
-            <h1>Student Name</h1>
-    <h1>Example Department</h1>
-    
-            
-          </div>
+<body class="is-ready">
+    <div id="wrapper">
+        <div id="main">
+            <div class="inner">
+                <div class="image" id="image02"><img src="https://www.mnsuet.ml/img/profile.png" alt="MNS Logo"></div>
+                <h2 id="text03">MNS UET MULTAN</h2>
+                <div class="image" id="image01"><img src="https://pbs.twimg.com/profile_images/905806772803428353/Tk9pKvOU_400x400.jpg" alt="Student Picture"></div>
+                <h2 id="text01"><span>Name : Ali Husnain </span><br> <span>Reg No : 2016-CH-718</span><br> <span>Chemical Engineering</span></h2>
+                <div class="image" id="image03"><img src="https://www.mnsuet.ml/img/qr.png" alt="QR Code"></div>
+            </div>
         </div>
-        <div id="social-bar">
-          
-          
-          
-          
-          
-          <a href="javascript:void" class="more-info">
-            <img class="cbutton initial lazyloaded" src="./test_files/turn_me_new-1.png">
-          </a>
-        </div>
-      </div>
-      <div id="back">
-        <div class="back-info">
-    <h1>Roll No</h1><h2>Email :example@gmail.com</h2><br><h2>CNIC: 35190-345678-1</h2><br><h2>Address :Example street ,city</h2><br><h2>Phone No : 0300-123456</h2>
-<br><center><img style="-webkit-user-select: none;background-position: 0px 0px, 10px 10px;background-size: 20px 20px;background-image:linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%),linear-gradient(45deg, #eee 25%, white 25%, white 75%, #eee 75%, #eee 100%);" src="./test_files/chart"></center>
-          
-        <center>MNS UET Multan</center></div>
-        <div id="social-bar">
-         <ul class="profile-social-links" style="
-    padding-top: 0px;
-    padding-bottom: 0px;
-    width: 280px;
-">
-    <div class="text-center center-block">
-    
-    
-    
-                <a href="https://www.facebook.com/Ali-Husnain-1905913566400066"><i id="social-fb" class="fa fa-facebook-square fa-1x social"></i></a>
-    
-                
-                
-                
     </div>
-  </ul>
-          
-          <a href="javascript:void" class="more-info">
-            <img class="cbutton initial lazyloaded" src="./test_files/turn_me_new-1.png">
-          </a>
-        </div>
-      </div>
-    </div>
-    <div id="background">
-      <div id="background-image"></div>
-    </div>
-  </div>
-</div>
-  <script src="./test_files/jquery.min.js.download"></script>
+</body>
 
-    <script src="./test_files/index.js.download"></script>
-
-
-
-</body></html>
+</html>
