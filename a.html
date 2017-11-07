@@ -1,0 +1,11 @@
+<script type="text/javascript">
+function changeText2(){
+    var userInput = document.getElementById('userInput').value;
+    var lnk = document.getElementById('lnk');
+    lnk.href = "www.mnsuet.ml/" + userInput;
+    window.location = "www.mnsuet.ml/" + userInput;
+}
+</script>
+<input type='text' id='userInput' value=' ' />
+<input type='button' onclick='changeText2()' value='Change Link'/><br>
+ <a href="" id=lnk>nothing here yet</a> 
