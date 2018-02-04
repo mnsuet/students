@@ -1002,8 +1002,20 @@
                         <div class="image" id="image03"><img src="https://www.mnsuet.ml/img/profile.png" alt=""></div>
                         <h1 id="text03">MNS UET Multan</h1>
                         <hr id="divider04">
-                        <p id="text09"><span>You can View Your Student Card As</span><br> <span><em><strong>mnsuet.ml/registration-number</strong></em></span></p>
-                    </div>
+                      <script type="text/javascript">
+function changeText2(){
+    var userInput = document.getElementById('userInput').value;
+    var lnk = document.getElementById('lnk');
+    lnk.href = "https://www.mnsuet.ml/" + userInput;
+    window.location = "" + userInput;
+}
+</script>
+<p>Enter Reg No In Box And Then Click View</p>
+<br><br>
+ <a href="" id=lnk></a> 
+<input type='text' id='userInput' value=' ' />
+<input type='button' onclick='changeText2()' value='View'/><br>
+                        </div>
                 </div>
                 <ul class="buttons" id="buttons03">
                     <li><a href="https://www.mnsuet.ml/test.html" class="button n01">Demo</a></li>
